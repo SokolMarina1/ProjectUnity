@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,4 +45,3 @@ public class NewBehaviourScript : MonoBehaviour
         UnityEngine.Debug.Log(i);
     }
 }
-
