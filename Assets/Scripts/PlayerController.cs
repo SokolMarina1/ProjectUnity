@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TZ
+namespace Golf
 {
     public class PlayerController : MonoBehaviour
     {
-        public Spawner spawner;
-        public CloudController cloudController;
-        public List<Refresh> villagers;
+        [SerializeField] private Player player;
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            //player.SetDown(Input.GetMouseButton(0));
+        }
+
+
+        public void OnDown()
+        {
+            player.SetDown(true);
+        }
+
+        public void OnUp()
+        {
+            player.SetDown(false);
+        }
+        private void Start()
+        {
+            if (player == null)
             {
-                Debug.Log("X key down");
-                spawner.Spawn();
-            }
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                Debug.Log("Z key down");
-                cloudController.Action();
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("space key down");
-                foreach (var villager in villagers)
-                {
-                    villager.ChangeTool();
-                }
+                Debug.Log("Player is null!");
             }
         }
     }
